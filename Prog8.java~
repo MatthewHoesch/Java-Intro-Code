@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.io.*;
+
+
+public class Prog8
+{
+  public static void main (String [] args) throws IOException
+  {
+   
+    String fname[] = new String[12], lastname, myinput;
+    String lname[] = new String[12];
+    double fIncome[] = new double [12];
+
+    Scanner infile = new Scanner 
+      (new FileInputStream("Finput.dat"));
+    
+    PrintWriter outfile = null;
+    outfile = new PrintWriter
+              (new FileOutputStream ("Foutput.dat"));
+    System.out.println("Writing to a file called Foutput.dat");
+    outfile.println("Last Name" + "\t\t\t\t\t" + "Income");
+    
+
+    infile.close();
+    
+    familytaxes ft = new familytaxes(lname, fIncome, outfile);
+    ft.tax();
+    ft.sort();
+    
+   outfile.close();
+  }
+}

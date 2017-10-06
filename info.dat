@@ -1,0 +1,10 @@
+Last Name					Family Income					Adjusted Income					Taxes
+Jones  							  58297.45  							56797.45							32259.503265024996
+Simon  							  52416.0  							50916.0							25924.390559999996
+Murphy  							  119218.75  							117218.75							58609.375
+Hansen  							  72086.0  							71086.0							35543.0
+The sorted average is : 
+Hansen					72086.0
+Jones					58297.45
+Murphy					119218.75
+Simon					52416.0

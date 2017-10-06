@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.io.*;
+public class prog7 
+{
+ public static void main(String[] args) throws IOException 
+ {
+  double table[][] = new double [6][5];
+  double cost[] = new double[30];
+  int max[] = new int[30];
+  int avg[] = new int[30];
+  int DNum,CNum;
+  Scanner infile= new Scanner (new FileInputStream ("info.dat"));
+  PrintWriter outfile = null;
+  outfile= new PrintWriter(new FileOutputStream ("2Dtable.dat")); 
+ 
+ 
+ outfile.println("\t\t\t\t\tComponent Number\t\t\t\t\t");
+ outfile.println();
+ outfile.println( "Device Number" + "\t" + "1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5");
+ outfile.println("_______________________________________________________________________________");
+ 
+ for(DNum=0;DNum <3;DNum++)
+ {
+  for(CNum=0;CNum <4;CNum++)
+  {
+  table[DNum][CNum]= infile.nextInt();
+  outfile.print(table[DNum][CNum] + " ");
+  }
+  outfile.println();
+ }
+ infile.close();
+ 
+ //The object is created and the constructor is called
+ arrTable at = new arrTable(table, outfile);
+ at.findDCost();
+ at.findMax();
+
+ 
+ outfile.close();
+ }
+}

@@ -1,0 +1,26 @@
+//find the average of 5 numbers. 
+//Name: Matthew Hoesch 
+ 
+import java.util.Scanner; 
+ 
+  public class Average 
+  { 
+    public static void main (String [] args) 
+    { 
+      Scanner kb = new Scanner (System.in); 
+       
+      int i, count =0, num; 
+      double sum = 0.0, avg; 
+       
+      System.out.println("Enter 5 numbers"); 
+       
+      for (i=0; i < 5; i++) 
+      {  
+        num=kb.nextInt(); 
+        sum= sum + num; 
+        count++; 
+      } 
+      avg = sum/count; 
+      System.out.println("avg =" +avg); 
+    } 
+} 

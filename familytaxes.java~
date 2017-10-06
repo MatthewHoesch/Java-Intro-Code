@@ -1,0 +1,87 @@
+import java.io.*;
+public class familytaxes 
+{
+    String lname[], names;
+    double Income[], amount;
+    double deduction;
+    double fIncome[] = new double [12];
+    double adjIncome;
+    double tax;
+    double taxrate;
+    int i, flag;
+    PrintWriter outfile;
+    
+    public familytaxes(String lname[] , double Income[], PrintWriter outfile)
+    {
+      this.lname= lname;
+      this.Income= Income;
+      this.outfile= outfile;
+    }
+    
+    public void tax()
+    { 
+      int members [] = new int[4];
+        for(i=0; i< 11; i++)
+        {
+        if(lname[i].compareTo(lname[i+1]) == 0) 
+          {
+            fIncome[i] = Income [i] + Income[i+1];
+            adjIncome = fIncome[i] - (500 * members[i]);
+             if(fIncome[i] < 60000) 
+             {
+            taxrate = adjIncome / 100000;
+            tax = taxrate * adjIncome;
+             break;
+             }
+             else  
+             {
+            taxrate = .50;
+            tax = taxrate * adjIncome;
+             break;
+             }
+        }
+        }
+        for(i=0; i<11 ; i++)
+        outfile.println(lname[i] + "\t\t\t\t\t" + fIncome[i] + "\t\t\t\t\t" + tax + "\t\t\t\t\t" + adjIncome);
+    
+    }
+    
+    
+    
+     public void sort()
+    {
+     String temp1;
+     double temp2;
+     int count =11; 
+      while (flag == 0)
+      {
+        flag=1;
+        for(i=0; i < count; i++)
+        {
+          if(lname[i].compareTo(lname[i+1]) > 0)
+          {
+            temp1= lname[i];
+            lname[i]= lname[i+1];
+            lname[i+1]= temp1;
+            
+            temp2= fIncome[i];
+            fIncome[i] = fIncome[i+1];
+            fIncome[i+1] = temp2;
+            flag=0;
+          }
+          
+        }count--;
+      }
+      outfile.println("The sorted average is : ");
+      for(i=0;i<12;i++)
+        outfile.println(lname[i] + "\t\t\t\t\t" + fIncome[i]);
+      
+    }
+        
+}
+
+        
+    
+      
+      
+      
